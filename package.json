@@ -12,6 +12,7 @@
     },
     "keywords": [
         "bmad",
+        "bmad-module",
         "odoo",
         "erp",
         "ai-agents",
@@ -23,6 +24,14 @@
         "developer",
         "vietnamese"
     ],
+    "bmad": {
+        "type": "module",
+        "displayName": "BMAD-Odoo: Odoo ERP Development",
+        "shortName": "BMAD-Odoo",
+        "description": "10 AI Agents + 44 Workflows cho Odoo ERP",
+        "category": "development",
+        "language": "vietnamese"
+    },
     "author": "Dũng Xuân",
     "license": "MIT",
     "repository": {
@@ -44,8 +53,5 @@
         "README.md",
         "LICENSE",
         "CHANGELOG.md"
-    ],
-    "dependencies": {
-        "bmad-odoo": "^1.0.0"
-    }
+    ]
 }

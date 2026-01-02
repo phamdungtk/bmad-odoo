@@ -1,0 +1,27 @@
+# BMAD-ODOO BMM Module Configuration
+# Version: 2.0.0
+# Odoo Development Method Module
+
+project_name: Odoo
+user_skill_level: intermediate
+planning_artifacts: "{project-root}/_bmad-odoo-output/planning-artifacts"
+implementation_artifacts: "{project-root}/_bmad-odoo-output/implementation-artifacts"
+project_knowledge: "{project-root}/docs"
+
+# Odoo-specific Configuration
+odoo:
+  defaultVersion: "17.0"
+  customModulesPath: Odoo-DPT
+  dxModulesPath: Odoo-DX
+  enterprisePath: enterprise
+  addonsPath: odoo/addons
+  ocaStandards: true
+
+# Story/Epic Locations
+devStoryLocation: docs/projects
+
+# Core Configuration Values
+user_name: DungXuann
+communication_language: vietnamese
+document_output_language: Vietnamese
+output_folder: "{project-root}/_bmad-odoo-output"

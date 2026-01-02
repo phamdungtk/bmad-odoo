@@ -1,0 +1,7 @@
+# BMAD-ODOO Core Module Configuration
+# Version: 2.0.0
+
+user_name: DungXuann
+communication_language: vietnamese
+document_output_language: Vietnamese
+output_folder: "{project-root}/_bmad-odoo-output"

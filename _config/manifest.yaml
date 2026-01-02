@@ -1,0 +1,10 @@
+installation:
+  version: 2.0.0
+  installDate: 2026-01-02T18:30:00.000Z
+  lastUpdated: 2026-01-02T18:30:00.000Z
+modules:
+  - core
+  - bmm
+ides:
+  - antigravity
+  - gemini

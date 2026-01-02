@@ -1,0 +1,10 @@
+id,module,filename,name,title,icon,is-available-in-agent-manifest,description
+odoo-analyst,bmm,analyst.md,Sofia,Chuyên Viên Phân Tích Nghiệp Vụ Odoo,📊,TRUE,Phân tích quy trình nghiệp vụ Odoo và tạo stories
+odoo-architect,bmm,architect.md,Antonio,Kiến Trúc Sư Odoo,🏗️,TRUE,Thiết kế kiến trúc module Odoo
+odoo-dev,bmm,dev.md,Carlos,Nhà Phát Triển Odoo,💻,TRUE,Phát triển module Odoo theo OCA
+odoo-pm,bmm,pm.md,Maria,Product Manager Odoo,📋,TRUE,Quản lý sản phẩm Odoo
+odoo-sm,bmm,sm.md,Diego,Scrum Master Odoo,🏃,TRUE,Quản lý sprint cho dự án Odoo
+odoo-tea,bmm,tea.md,Elena,Test Architect Odoo,🧪,TRUE,Thiết kế test automation cho Odoo
+odoo-ux-designer,bmm,ux-designer.md,Sally,UX Designer Odoo,🎨,TRUE,Thiết kế UX cho Odoo views
+odoo-quick-flow,bmm,quick-flow-solo-dev.md,Barry,Quick Flow Solo Dev Odoo,🚀,TRUE,Phát triển nhanh Odoo
+odoo-tech-writer,bmm,tech-writer.md,Paige,Technical Writer Odoo,📚,TRUE,Viết tài liệu Odoo

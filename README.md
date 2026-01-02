@@ -1,95 +1,95 @@
-# BMAD-Odoo - Hướng Dẫn Sử Dụng
+# BMAD-Odoo - User Guide
 
 [![npm version](https://img.shields.io/npm/v/bmad-odoo.svg)](https://www.npmjs.com/package/bmad-odoo)
 [![npm downloads](https://img.shields.io/npm/dm/bmad-odoo.svg)](https://www.npmjs.com/package/bmad-odoo)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> **BMAD Framework mở rộng cho phát triển Odoo ERP**
+> **BMAD Framework extension for Odoo ERP development**
 
 ---
 
-## 📋 Mục Lục
+## 📋 Table of Contents
 
-1. [Giới Thiệu](#giới-thiệu)
-2. [Cài Đặt](#cài-đặt)
-3. [Hướng Dẫn Chi Tiết](#-hướng-dẫn-chi-tiết)
-4. [Các Lệnh Phổ Biến](#-các-lệnh-phổ-biến)
+1. [Introduction](#introduction)
+2. [Installation](#installation)
+3. [Detailed Guide](#-detailed-guide)
+4. [Common Commands](#-common-commands)
 5. [Use Cases](#-use-cases)
-6. [Cấu Hình](#cấu-hình)
-7. [Các Agents](#các-agents)
+6. [Configuration](#configuration)
+7. [Agents](#agents)
 8. [Workflows](#workflows)
-9. [Quy Trình Làm Việc](#quy-trình-làm-việc)
-10. [Cấu Trúc Thư Mục](#cấu-trúc-thư-mục)
+9. [Work Process](#work-process)
+10. [Directory Structure](#directory-structure)
 11. [Troubleshooting](#-troubleshooting)
 12. [FAQ](#-faq)
-13. [Tài Liệu Tham Khảo](#tài-liệu-tham-khảo)
+13. [References](#references)
 
 ---
 
-## Giới Thiệu
+## Introduction
 
-**BMAD-Odoo** là một framework mở rộng từ BMAD (Brian's Method for AI Development), được tùy chỉnh đặc biệt cho việc phát triển và triển khai Odoo ERP.
+**BMAD-Odoo** is an extended framework from BMAD (Brian's Method for AI Development), specifically customized for Odoo ERP development and deployment.
 
-### Tính Năng Chính
+### Key Features
 
-- 🤖 **10 AI Agents** chuyên biệt cho từng vai trò trong dự án Odoo
-- 📝 **44 Workflows** bao phủ toàn bộ vòng đời phát triển
-- 🇻🇳 **Hỗ trợ tiếng Việt** đầy đủ
-- 📚 **Knowledge Base** tích hợp kiến thức Odoo
-- ⚙️ **Auto-setup** tự động cấu hình workflows khi cài đặt
+- 🤖 **10 AI Agents** specialized for each role in Odoo projects
+- 📝 **44 Workflows** covering the entire development lifecycle
+- 🇻🇳 **Full Vietnamese support**
+- 📚 **Knowledge Base** with integrated Odoo knowledge
+- ⚙️ **Auto-setup** automatically configures workflows on installation
 
 ---
 
-## Cài Đặt
+## Installation
 
-### Yêu Cầu
+### Requirements
 
 - Node.js 18+
-- Odoo 16.0+ hoặc 17.0
-- AI IDE hỗ trợ (Antigravity/Gemini, Cursor, VS Code, Windsurf)
+- Odoo 16.0+ or 17.0
+- Supported AI IDE (Antigravity/Gemini, Cursor, VS Code, Windsurf)
 
-### Cách 1: Cài Đặt từ NPM (Khuyến nghị)
+### Method 1: Install from NPM (Recommended)
 
 ```bash
-# Trong thư mục dự án Odoo của bạn
+# In your Odoo project directory
 npm install bmad-odoo
 ```
 
-**Post-install sẽ tự động hỏi bạn chọn IDE:**
+**Post-install will automatically prompt you to choose IDE:**
 ```
-Chọn IDE bạn đang sử dụng:
-  1. VS Code          - Visual Studio Code với extensions AI
+Choose your IDE:
+  1. VS Code          - Visual Studio Code with AI extensions
   2. Cursor           - Cursor AI IDE
   3. Antigravity      - Google Gemini Antigravity Agent
   4. Windsurf         - Windsurf AI IDE
-  5. Tất cả           - Setup cho tất cả IDEs
+  5. All              - Setup for all IDEs
 
-Nhập số (1-5) [mặc định: 3]:
+Enter number (1-5) [default: 3]:
 ```
 
-**Package sẽ tự động tạo:**
-- ✅ Thư mục `_bmad-odoo/` (symlink hoặc copy từ `node_modules/`)
-- ✅ Thư mục `_bmad-odoo-output/` với cấu trúc con cho artifacts
-- ✅ Workflows vào `.agent/workflows/` (hoặc IDE bạn chọn)
-- ✅ Các slash commands: `/analyst`, `/dev`, `/pm`, ...
+**Package will automatically create:**
+- ✅ `_bmad-odoo/` directory (symlink or copy from `node_modules/`)
+- ✅ `_bmad-odoo-output/` directory with subdirectory structure for artifacts
+- ✅ Workflows in `.agent/workflows/` (or your chosen IDE)
+- ✅ Slash commands: `/analyst`, `/dev`, `/pm`, ...
 
-### Chạy Lại Setup (nếu cần)
+### Re-run Setup (if needed)
 
 ```bash
-# Nếu muốn đổi IDE hoặc setup lại
+# If you want to change IDE or re-setup
 npx bmad-odoo-setup
 ```
 
-### Cách 2: Cài Đặt Thủ Công
+### Method 2: Manual Installation
 
 ```bash
 # Clone repository
 git clone https://github.com/phamdungtk/bmad-odoo.git
 
-# Copy vào node_modules
+# Copy to node_modules
 cp -r bmad-odoo node_modules/
 
-# Chạy setup
+# Run setup
 cd bmad-odoo
 npm run setup
 ```
@@ -97,118 +97,118 @@ npm run setup
 ---
 
 
-## Cấu Hình
+## Configuration
 
-### File Cấu Hình Chính
+### Main Configuration File
 
-Chỉnh sửa file `bmm/config.yaml`:
+Edit the `bmm/config.yaml` file:
 
 ```yaml
-# Thông tin người dùng
-user_name: "Tên của bạn"
-communication_language: "Tiếng Việt"
+# User information
+user_name: "Your Name"
+communication_language: "Vietnamese"
 
-# Thư mục đầu ra
+# Output directory
 output_folder: "_bmad-odoo-output"
 planning_artifacts: "_bmad-odoo-output/planning"
 implementation_artifacts: "_bmad-odoo-output/implementation"
 
-# Cấu hình Odoo
+# Odoo configuration
 odoo:
   version: "17.0"
-  edition: "community"           # community hoặc enterprise
+  edition: "community"           # community or enterprise
   customModulesPath: "addons_custom"
   oca_path: "addons_oca"
 ```
 
 ---
 
-## 🚀 Hướng Dẫn Chi Tiết
+## 🚀 Detailed Guide
 
-### Bước 1: Cài Đặt Package
+### Step 1: Install Package
 
 ```bash
-# Di chuyển đến thư mục dự án Odoo của bạn
+# Navigate to your Odoo project directory
 cd D:\MyOdooProject
 
-# Khởi tạo package.json nếu chưa có
+# Initialize package.json if not already present
 npm init -y
 
-# Cài đặt bmad-odoo
+# Install bmad-odoo
 npm install bmad-odoo
 ```
 
-**Kết quả:**
+**Result:**
 ```
 + bmad-odoo@1.0.0
 added 1 package
 ```
 
-### Bước 2: Interactive Setup (Tự Động)
+### Step 2: Interactive Setup (Automatic)
 
-Ngay sau khi cài đặt, **post-install script sẽ tự động chạy**:
+Right after installation, **post-install script will run automatically**:
 
 ```
 ╔════════════════════════════════════════════════════════════╗
 ║          🚀 BMAD-Odoo Interactive Setup                     ║
 ╚════════════════════════════════════════════════════════════╝
 
-Chọn IDE bạn đang sử dụng:
+Choose your IDE:
 
-  1. VS Code          - Visual Studio Code với extensions AI
+  1. VS Code          - Visual Studio Code with AI extensions
   2. Cursor           - Cursor AI IDE
   3. Antigravity      - Google Gemini Antigravity Agent
   4. Windsurf         - Windsurf AI IDE
-  5. Tất cả           - Setup cho tất cả IDEs
+  5. All              - Setup for all IDEs
 
-Nhập số (1-5) [mặc định: 3]:
+Enter number (1-5) [default: 3]:
 ```
 
-**Nhập số và Enter:**
+**Enter number and press Enter:**
 ```bash
-3  # Chọn Antigravity (hoặc IDE bạn đang dùng)
+3  # Choose Antigravity (or your IDE)
 ```
 
-### Bước 3: Quá Trình Setup (Tự Động)
+### Step 3: Setup Process (Automatic)
 
-Script sẽ tự động thực hiện:
+Script will automatically execute:
 
 ```
-📌 Đã chọn: Antigravity (Gemini)
+📌 Selected: Antigravity (Gemini)
 
-[1/3] Tạo thư mục _bmad-odoo...
-✅ Đã tạo symlink: _bmad-odoo -> node_modules/bmad-odoo
+[1/3] Creating _bmad-odoo directory...
+✅ Created symlink: _bmad-odoo -> node_modules/bmad-odoo
 
-[2/3] Tạo thư mục _bmad-odoo-output...
-✅ Đã tạo: _bmad-odoo-output/
+[2/3] Creating _bmad-odoo-output directory...
+✅ Created: _bmad-odoo-output/
 
-[3/3] Tạo workflow files...
-✅ Đã tạo 10 workflows cho Antigravity (Gemini)
+[3/3] Creating workflow files...
+✅ Created 10 workflows for Antigravity (Gemini)
 
 ╔════════════════════════════════════════════════════════════╗
-║          ✅ BMAD-Odoo Setup Hoàn Tất!                       ║
+║          ✅ BMAD-Odoo Setup Complete!                       ║
 ╚════════════════════════════════════════════════════════════╝
 ```
 
-### Bước 4: Kiểm Tra Cấu Trúc Đã Tạo
+### Step 4: Verify Created Structure
 
 ```bash
-# Kiểm tra thư mục project
+# Check project directory
 ls -la
 ```
 
-**Cấu trúc sau khi setup:**
+**Structure after setup:**
 ```
 MyOdooProject/
 ├── node_modules/
-│   └── bmad-odoo/          # Package gốc từ npm
-├── _bmad-odoo/             # ✨ Symlink/copy để dễ access
-├── _bmad-odoo-output/      # ✨ Thư mục output cho artifacts
+│   └── bmad-odoo/          # Original package from npm
+├── _bmad-odoo/             # ✨ Symlink/copy for easy access
+├── _bmad-odoo-output/      # ✨ Output directory for artifacts
 │   ├── planning-artifacts/
 │   ├── implementation-artifacts/
 │   ├── test-artifacts/
 │   └── documentation/
-├── .agent/                 # ✨ Workflows cho Antigravity
+├── .agent/                 # ✨ Workflows for Antigravity
 │   └── workflows/
 │       ├── analyst.md
 │       ├── architect.md
@@ -223,74 +223,74 @@ MyOdooProject/
 └── package.json
 ```
 
-### Bước 5: Sử Dụng Agents
+### Step 5: Using Agents
 
-Mở AI IDE của bạn (Antigravity/Gemini, Cursor, etc.) và gõ:
+Open your AI IDE (Antigravity/Gemini, Cursor, etc.) and type:
 
 ```bash
-/analyst          # Kích hoạt Business Analyst (Sofia)
-/architect        # Kích hoạt Technical Architect (Antonio)
-/dev              # Kích hoạt Developer (Carlos)
-/pm               # Kích hoạt Product Manager (Maria)
-/sm               # Kích hoạt Scrum Master (Diego)
-/tea              # Kích hoạt Test Architect (Elena)
-/ux-designer      # Kích hoạt UX Designer (Sally)
-/quick-flow-solo-dev  # Kích hoạt Quick Flow Dev (Barry)
-/tech-writer      # Kích hoạt Tech Writer (Paige)
+/analyst          # Activate Business Analyst (Sofia)
+/architect        # Activate Technical Architect (Antonio)
+/dev              # Activate Developer (Carlos)
+/pm               # Activate Product Manager (Maria)
+/sm               # Activate Scrum Master (Diego)
+/tea              # Activate Test Architect (Elena)
+/ux-designer      # Activate UX Designer (Sally)
+/quick-flow-solo-dev  # Activate Quick Flow Dev (Barry)
+/tech-writer      # Activate Tech Writer (Paige)
 ```
 
 ---
 
-## 🔧 Các Lệnh Phổ Biến
+## 🔧 Common Commands
 
-### Chạy Lại Setup (Đổi IDE hoặc Thêm IDE)
+### Re-run Setup (Change IDE or Add IDE)
 
-Nếu bạn muốn:
-- Đổi sang IDE khác
-- Thêm workflows cho IDE mới
-- Setup lại từ đầu
+If you want to:
+- Switch to another IDE
+- Add workflows for new IDE
+- Re-setup from scratch
 
 ```bash
-# Chạy interactive setup
+# Run interactive setup
 npx bmad-odoo-setup
 
-# Hoặc
+# Or
 npm run setup
 ```
 
-**Script sẽ hỏi lại IDE và tạo workflows cho IDE đó.**
+**Script will ask for IDE again and create workflows for it.**
 
-### Xem Thông Tin Package
+### View Package Information
 
 ```bash
-# Xem version đã cài
+# View installed version
 npm list bmad-odoo
 
-# Xem thông tin từ npm
+# View information from npm
 npm view bmad-odoo
 
-# Xem tất cả versions có sẵn
+# View all available versions
 npm view bmad-odoo versions
 ```
 
 ### Update Package
 
 ```bash
-# Update lên version mới nhất
+# Update to latest version
 npm update bmad-odoo
 
-# Hoặc cài lại với version cụ thể
+# Or reinstall with specific version
 npm install bmad-odoo@latest
 ```
 
-### Xóa và Cài Lại
+### Remove and Reinstall
 
 ```bash
-# Xóa package và thư mục đã tạo
+# Remove package and created directories
 npm uninstall bmad-odoo
 rm -rf _bmad-odoo _bmad-odoo-output .agent/workflows
 
-# Cài lại
+# Reinstall
 npm install bmad-odoo
 ```
 
@@ -298,226 +298,226 @@ npm install bmad-odoo
 
 ## 💡 Use Cases
 
-### Case 1: Phát Triển Module Odoo Mới
+### Case 1: Developing New Odoo Module
 
 ```bash
-# 1. Cài đặt bmad-odoo
+# 1. Install bmad-odoo
 npm install bmad-odoo
 
-# 2. Kích hoạt Business Analyst để phân tích yêu cầu
+# 2. Activate Business Analyst to analyze requirements
 /analyst
-> AP  # Chọn [AP] Analyze Process
+> AP  # Choose [AP] Analyze Process
 
-# 3. Kích hoạt Architect để thiết kế
+# 3. Activate Architect for design
 /architect
-> CO  # Chọn [CO] Create Odoo Addon
+> CO  # Choose [CO] Create Odoo Addon
 
-# 4. Kích hoạt Developer để code
+# 4. Activate Developer to code
 /dev
-> DS  # Chọn [DS] Dev Story
+> DS  # Choose [DS] Dev Story
 ```
 
-### Case 2: Setup Cho Team (Multi-IDE)
+### Case 2: Team Setup (Multi-IDE)
 
 ```bash
-# Cài đặt package
+# Install package
 npm install bmad-odoo
 
-# Khi setup, chọn option 5 (Tất cả)
-# Script sẽ tạo workflows cho:
+# During setup, choose option 5 (All)
+# Script will create workflows for:
 # - VS Code (.vscode/workflows/)
 # - Cursor (.cursor/workflows/)
 # - Antigravity (.agent/workflows/)
 # - Windsurf (.windsurf/workflows/)
 
-# Team members dùng IDE khác nhau đều có thể làm việc
+# Team members using different IDEs can all work
 ```
 
 ### Case 3: CI/CD Integration
 
-Nếu cài đặt trong CI/CD (non-interactive):
+If installing in CI/CD (non-interactive):
 
 ```bash
-# Script sẽ tự động chọn Antigravity (default)
+# Script will automatically choose Antigravity (default)
 npm install bmad-odoo
 
-# Hoặc set biến môi trường (nếu support sau)
+# Or set environment variable (if supported later)
 BMAD_IDE=cursor npm install bmad-odoo
 ```
 
 ---
 
-## Cấu Hình
+## Configuration
 
-### File Cấu Hình Chính
+### Main Configuration File
 
-Chỉnh sửa file `_bmad-odoo/bmm/config.yaml`:
+Edit the `_bmad-odoo/bmm/config.yaml` file:
 
 ```yaml
-# Thông tin người dùng
-user_name: "Tên của bạn"
-communication_language: "Tiếng Việt"
+# User information
+user_name: "Your Name"
+communication_language: "Vietnamese"
 
-# Thư mục đầu ra
+# Output directory
 output_folder: "_bmad-odoo-output"
 planning_artifacts: "_bmad-odoo-output/planning-artifacts"
 implementation_artifacts: "_bmad-odoo-output/implementation-artifacts"
 
-# Cấu hình Odoo
+# Odoo configuration
 odoo:
   version: "17.0"
-  edition: "community"           # community hoặc enterprise
+  edition: "community"           # community or enterprise
   customModulesPath: "addons_custom"
   oca_path: "addons_oca"
 ```
 
 ---
 
-## Các Agents
+## Agents
 
-### Danh Sách Agents
+### Agent List
 
-| Agent | Tên | Vai Trò | Slash Command |
-|-------|-----|---------|---------------|
-| 💼 Sofia | Business Analyst | Phân tích quy trình, gap analysis | `/analyst` |
-| 🏗️ Antonio | Technical Architect | Thiết kế kiến trúc module | `/architect` |
-| 💻 Carlos | Developer | Phát triển code Odoo | `/dev` |
-| 📊 Maria | Product Manager | Quản lý sản phẩm, tạo PRD | `/pm` |
-| 🏃 Diego | Scrum Master | Quản lý Sprint, story | `/sm` |
-| 🧪 Elena | Test Architect | Thiết kế test cases | `/tea` |
-| 🎨 Sally | UX Designer | Thiết kế UX cho Odoo views | `/ux-designer` |
-| ⚡ Barry | Quick Flow Dev | Phát triển nhanh | `/quick-flow-solo-dev` |
-| 📝 Paige | Tech Writer | Tài liệu hóa module | `/tech-writer` |
-| 🎯 Master | BMAD-Odoo Master | Điều phối tổng thể | (auto) |
+| Agent | Name | Role | Slash Command |
+|-------|------|------|---------------|
+| 💼 Sofia | Business Analyst | Process analysis, gap analysis | `/analyst` |
+| 🏗️ Antonio | Technical Architect | Module architecture design | `/architect` |
+| 💻 Carlos | Developer | Odoo code development | `/dev` |
+| 📊 Maria | Product Manager | Product management, PRD creation | `/pm` |
+| 🏃 Diego | Scrum Master | Sprint, story management | `/sm` |
+| 🧪 Elena | Test Architect | Test case design | `/tea` |
+| 🎨 Sally | UX Designer | UX design for Odoo views | `/ux-designer` |
+| ⚡ Barry | Quick Flow Dev | Rapid development | `/quick-flow-solo-dev` |
+| 📝 Paige | Tech Writer | Module documentation | `/tech-writer` |
+| 🎯 Master | BMAD-Odoo Master | Overall coordination | (auto) |
 
-### Cách Kích Hoạt Agent
+### How to Activate Agent
 
 ```
-/analyst    # Kích hoạt Sofia - Business Analyst
-/dev        # Kích hoạt Carlos - Developer
-/pm         # Kích hoạt Maria - Product Manager
+/analyst    # Activate Sofia - Business Analyst
+/dev        # Activate Carlos - Developer
+/pm         # Activate Maria - Product Manager
 ```
 
 ---
 
 ## Workflows
 
-### Phân Loại Workflows
+### Workflow Categories
 
-#### 1. Analysis (Phân Tích)
-| Workflow | Mô Tả |
-|----------|-------|
-| `analyze-process` | Phân tích quy trình nghiệp vụ Odoo |
-| `gap-analysis` | Phân tích khoảng trống yêu cầu |
-| `create-product-brief` | Tạo Product Brief |
-| `create-odoo-product-brief` | Tạo Product Brief cho Odoo |
-| `research` | Nghiên cứu thị trường/kỹ thuật |
+#### 1. Analysis
+| Workflow | Description |
+|----------|-------------|
+| `analyze-process` | Analyze Odoo business processes |
+| `gap-analysis` | Requirements gap analysis |
+| `create-product-brief` | Create Product Brief |
+| `create-odoo-product-brief` | Create Product Brief for Odoo |
+| `research` | Market/technical research |
 
-#### 2. Planning (Lập Kế Hoạch)
-| Workflow | Mô Tả |
-|----------|-------|
-| `create-odoo-addon` | Thiết kế Odoo Addon mới |
-| `create-odoo-epic` | Tạo Epic phát triển |
-| `create-odoo-prd` | Tạo PRD Odoo |
-| `create-odoo-ux-design` | Thiết kế UX Odoo views |
-| `plan-odoo-migration` | Lập kế hoạch migration |
-| `create-ux-design` | Tạo thiết kế UX chung |
-| `prd` | Tạo Product Requirements Doc |
+#### 2. Planning
+| Workflow | Description |
+|----------|-------------|
+| `create-odoo-addon` | Design new Odoo Addon |
+| `create-odoo-epic` | Create development Epic |
+| `create-odoo-prd` | Create Odoo PRD |
+| `create-odoo-ux-design` | Design Odoo views UX |
+| `plan-odoo-migration` | Plan migration |
+| `create-ux-design` | Create general UX design |
+| `prd` | Create Product Requirements Doc |
 
-#### 3. Solutioning (Giải Pháp)
-| Workflow | Mô Tả |
-|----------|-------|
-| `create-architecture` | Thiết kế kiến trúc |
-| `create-epics-and-stories` | Tạo Epics & Stories |
-| `check-implementation-readiness` | Kiểm tra sẵn sàng triển khai |
-| `enhance-existing-system` | Nâng cấp hệ thống có sẵn |
-| `quick-addon` | Tạo addon nhanh |
+#### 3. Solutioning
+| Workflow | Description |
+|----------|-------------|
+| `create-architecture` | Design architecture |
+| `create-epics-and-stories` | Create Epics & Stories |
+| `check-implementation-readiness` | Check implementation readiness |
+| `enhance-existing-system` | Enhance existing system |
+| `quick-addon` | Quick addon creation |
 
-#### 4. Implementation (Triển Khai)
-| Workflow | Mô Tả |
-|----------|-------|
-| `dev-story` | Thực thi Dev Story |
-| `code-review` | Đánh giá mã nguồn |
-| `create-next-story` | Tạo Story tiếp theo |
-| `rapid-brownfield` | Phát triển brownfield nhanh |
-| `sprint-planning` | Lập kế hoạch Sprint |
-| `sprint-status` | Trạng thái Sprint |
-| `correct-course` | Điều chỉnh hướng đi |
-| `retrospective` | Họp nhìn lại |
+#### 4. Implementation
+| Workflow | Description |
+|----------|-------------|
+| `dev-story` | Execute Dev Story |
+| `code-review` | Code review |
+| `create-next-story` | Create next Story |
+| `rapid-brownfield` | Rapid brownfield development |
+| `sprint-planning` | Sprint planning |
+| `sprint-status` | Sprint status |
+| `correct-course` | Course correction |
+| `retrospective` | Retrospective meeting |
 
-#### 5. Testing (Kiểm Thử)
-| Workflow | Mô Tả |
-|----------|-------|
-| `odoo-test-design` | Thiết kế test Odoo |
-| `test-design` | Thiết kế kiểm thử |
-| `test-review` | Đánh giá kiểm thử |
-| `automate` | Tự động hóa kiểm thử |
+#### 5. Testing
+| Workflow | Description |
+|----------|-------------|
+| `odoo-test-design` | Odoo test design |
+| `test-design` | Test design |
+| `test-review` | Test review |
+| `automate` | Test automation |
 
-#### 6. Documentation (Tài Liệu)
-| Workflow | Mô Tả |
-|----------|-------|
-| `document-odoo` | Tài liệu hóa Odoo module |
-| `document-project` | Tài liệu hóa dự án |
-| `generate-project-context` | Tạo project context |
+#### 6. Documentation
+| Workflow | Description |
+|----------|-------------|
+| `document-odoo` | Document Odoo module |
+| `document-project` | Document project |
+| `generate-project-context` | Generate project context |
 
 ---
 
-## Quy Trình Làm Việc
+## Work Process
 
-### Quy Trình Phát Triển Odoo Addon Mới
+### New Odoo Addon Development Process
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    QUY TRÌNH PHÁT TRIỂN                      │
+│                    DEVELOPMENT PROCESS                       │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
-│  1. ANALYSIS (Phân Tích)                                    │
-│     └─▶ /analyst → [AP] Phân tích quy trình                 │
-│     └─▶ /analyst → [GA] Gap Analysis                        │
+│  1. ANALYSIS                                                │
+│     └─▶ /analyst → [AP] Analyze process                    │
+│     └─▶ /analyst → [GA] Gap Analysis                       │
 │                                                              │
-│  2. PLANNING (Lập Kế Hoạch)                                 │
-│     └─▶ /pm → [OPB] Tạo Product Brief Odoo                  │
-│     └─▶ /pm → [OPR] Tạo PRD Odoo                            │
-│     └─▶ /pm → [CE] Tạo Epic                                 │
+│  2. PLANNING                                                │
+│     └─▶ /pm → [OPB] Create Odoo Product Brief              │
+│     └─▶ /pm → [OPR] Create Odoo PRD                        │
+│     └─▶ /pm → [CE] Create Epic                             │
 │                                                              │
-│  3. DESIGN (Thiết Kế)                                       │
-│     └─▶ /architect → [CO] Thiết kế Addon                    │
-│     └─▶ /ux-designer → [OUX] Thiết kế UX Views              │
+│  3. DESIGN                                                  │
+│     └─▶ /architect → [CO] Design Addon                     │
+│     └─▶ /ux-designer → [OUX] Design UX Views               │
 │                                                              │
-│  4. IMPLEMENTATION (Triển Khai)                             │
-│     └─▶ /sm → [CS] Tạo Story                                │
-│     └─▶ /dev → [DS] Dev Story                               │
-│     └─▶ /dev → [CR] Code Review                             │
+│  4. IMPLEMENTATION                                          │
+│     └─▶ /sm → [CS] Create Story                            │
+│     └─▶ /dev → [DS] Dev Story                              │
+│     └─▶ /dev → [CR] Code Review                            │
 │                                                              │
-│  5. TESTING (Kiểm Thử)                                      │
-│     └─▶ /tea → [OTD] Thiết kế Test Odoo                     │
+│  5. TESTING                                                 │
+│     └─▶ /tea → [OTD] Design Odoo Test                      │
 │                                                              │
-│  6. DOCUMENTATION (Tài Liệu)                                │
-│     └─▶ /tech-writer → [OD] Tài liệu Odoo Module            │
+│  6. DOCUMENTATION                                           │
+│     └─▶ /tech-writer → [OD] Document Odoo Module           │
 │                                                              │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Ví Dụ: Phân Tích Quy Trình Bán Hàng
+### Example: Analyzing Sales Process
 
 ```bash
-# Bước 1: Kích hoạt Business Analyst
+# Step 1: Activate Business Analyst
 /analyst
 
-# Bước 2: Chọn menu [AP] Phân tích quy trình
+# Step 2: Choose menu [AP] Analyze process
 > AP
 
-# Bước 3: Workflow sẽ hướng dẫn qua các bước:
-#   - Thu thập thông tin cơ bản
-#   - Phân tích trạng thái hiện tại
-#   - Xác định điểm đau
-#   - Mapping với Odoo modules
-#   - Đề xuất giải pháp
+# Step 3: Workflow will guide through steps:
+#   - Gather basic information
+#   - Analyze current state
+#   - Identify pain points
+#   - Map to Odoo modules
+#   - Propose solutions
 ```
 
 ---
 
-## Cấu Trúc Thư Mục
+## Directory Structure
 
 ```
 _bmad-odoo/
@@ -566,65 +566,65 @@ _bmad-odoo/
 
 ## 🔧 Troubleshooting
 
-### Lỗi: "Cannot find module 'bmad-odoo'"
+### Error: "Cannot find module 'bmad-odoo'"
 
-**Nguyên nhân:** Package chưa được cài hoặc cài sai vị trí
+**Cause:** Package not installed or installed in wrong location
 
-**Giải pháp:**
+**Solution:**
 ```bash
-# Kiểm tra package.json có bmad-odoo chưa
+# Check if bmad-odoo is in package.json
 cat package.json | grep bmad-odoo
 
-# Cài lại
+# Reinstall
 npm install bmad-odoo
 
 # Verify
 npm list bmad-odoo
 ```
 
-### Lỗi: "Permission denied" khi tạo symlink
+### Error: "Permission denied" when creating symlink
 
-**Nguyên nhân:** Windows yêu cầu admin rights để tạo symlink
+**Cause:** Windows requires admin rights to create symlinks
 
-**Giải pháp:**
-Script tự động fallback sang copy folder. Không cần làm gì.
+**Solution:**
+Script automatically falls back to copying folder. No action needed.
 
-**Kiểm tra:**
+**Check:**
 ```bash
-# Kiểm tra _bmad-odoo có phải symlink không
+# Check if _bmad-odoo is a symlink
 ls -la _bmad-odoo
 
-# Nếu symlink: lrwxrwxrwx ... _bmad-odoo -> node_modules/bmad-odoo
-# Nếu copy: drwxr-xr-x ... _bmad-odoo
+# If symlink: lrwxrwxrwx ... _bmad-odoo -> node_modules/bmad-odoo
+# If copy: drwxr-xr-x ... _bmad-odoo
 ```
 
-### Lỗi: Post-install không chạy
+### Error: Post-install not running
 
-**Nguyên nhân:** npm config hoặc chạy với `--ignore-scripts`
+**Cause:** npm config or running with `--ignore-scripts`
 
-**Giải pháp:**
+**Solution:**
 ```bash
-# Chạy thủ công
+# Run manually
 npx bmad-odoo-setup
 
-# Hoặc
+# Or
 npm run setup
 ```
 
-### Lỗi: Workflows không xuất hiện trong IDE
+### Error: Workflows not appearing in IDE
 
-**Nguyên nhân:** 
-- IDE chưa reload
-- Workflows tạo sai folder
+**Cause:** 
+- IDE not reloaded
+- Workflows created in wrong folder
 
-**Giải pháp:**
+**Solution:**
 ```bash
-# 1. Kiểm tra workflows đã tạo chưa
+# 1. Check if workflows are created
 ls .agent/workflows  # Antigravity
 ls .cursor/workflows # Cursor
 ls .vscode/workflows # VS Code
 
-# 2. Nếu chưa có, chạy lại setup
+# 2. If not present, re-run setup
 npx bmad-odoo-setup
 
 # 3. Reload IDE
@@ -633,92 +633,92 @@ npx bmad-odoo-setup
 # - VS Code: Cmd/Ctrl + Shift + P → "Reload Window"
 ```
 
-### Lỗi: Output folder không được tạo
+### Error: Output folder not created
 
-**Giải pháp:**
+**Solution:**
 ```bash
-# Tạo thủ công
+# Create manually
 mkdir -p _bmad-odoo-output/{planning-artifacts,implementation-artifacts,test-artifacts,documentation}
 
-# Hoặc chạy lại setup
+# Or re-run setup
 npx bmad-odoo-setup
 ```
 
-### Muốn đổi IDE sau khi đã setup
+### Want to change IDE after setup
 
-**Giải pháp:**
+**Solution:**
 ```bash
-# Chạy lại setup và chọn IDE mới
+# Re-run setup and choose new IDE
 npx bmad-odoo-setup
 
-# Hoặc chọn "Tất cả" để có workflows cho nhiều IDE
+# Or choose "All" to have workflows for multiple IDEs
 ```
 
 ---
 
 ## ❓ FAQ
 
-**Q: Có thể dùng nhiều IDE cùng lúc không?**
+**Q: Can I use multiple IDEs simultaneously?**
 
-A: Có! Chọn option 5 (Tất cả) khi setup, hoặc chạy `npx bmad-odoo-setup` nhiều lần với IDE khác nhau.
+A: Yes! Choose option 5 (All) during setup, or run `npx bmad-odoo-setup` multiple times with different IDEs.
 
-**Q: _bmad-odoo và node_modules/bmad-odoo khác gì?**
+**Q: What's the difference between _bmad-odoo and node_modules/bmad-odoo?**
 
 A: 
-- `node_modules/bmad-odoo`: Package gốc từ npm
-- `_bmad-odoo`: Symlink (hoặc copy) để dễ access, tránh phải gõ đường dẫn dài
+- `node_modules/bmad-odoo`: Original package from npm
+- `_bmad-odoo`: Symlink (or copy) for easy access, avoiding long path typing
 
-**Q: Có thể commit _bmad-odoo-output vào git không?**
+**Q: Can I commit _bmad-odoo-output to git?**
 
-A: Có thể! Folder này chứa artifacts (PRD, architecture docs, stories) do agents tạo ra. Commit chúng giúp team tracking tiến độ.
+A: Yes! This folder contains artifacts (PRD, architecture docs, stories) created by agents. Committing them helps team track progress.
 
-**Q: Làm sao để update lên version mới?**
+**Q: How to update to new version?**
 
-A: `npm update bmad-odoo` hoặc `npm install bmad-odoo@latest`
+A: `npm update bmad-odoo` or `npm install bmad-odoo@latest`
 
-**Q: Package này hoạt động offline không?**
+**Q: Does this package work offline?**
 
-A: Sau khi cài, package hoạt động offline (không cần internet). Chỉ cần internet khi `npm install` lần đầu.
+A: After installation, the package works offline (no internet needed). Internet only required for initial `npm install`.
 
-**Q: Tôi có thể tùy chỉnh config không?**
+**Q: Can I customize the config?**
 
-A: Có! Chỉnh sửa file `_bmad-odoo/bmm/config.yaml` để thay đổi output folder, Odoo version, và các settings khác.
+A: Yes! Edit `_bmad-odoo/bmm/config.yaml` to change output folder, Odoo version, and other settings.
 
 ---
 
-## Tài Liệu Tham Khảo
+## References
 
-### Files Quan Trọng
+### Important Files
 
-| File | Mô Tả |
-|------|-------|
-| `_bmad-odoo/bmm/config.yaml` | Cấu hình chính |
-| `_bmad-odoo/bmm/data/odoo-knowledge-base.md` | Kiến thức Odoo |
-| `_bmad-odoo-output/` | Thư mục chứa artifacts |
-| `.agent/workflows/` | Workflows cho Antigravity |
+| File | Description |
+|------|-------------|
+| `_bmad-odoo/bmm/config.yaml` | Main configuration |
+| `_bmad-odoo/bmm/data/odoo-knowledge-base.md` | Odoo knowledge |
+| `_bmad-odoo-output/` | Artifacts directory |
+| `.agent/workflows/` | Workflows for Antigravity |
 
-### Liên Kết
+### Links
 
 - [NPM Package](https://www.npmjs.com/package/bmad-odoo)
 - [GitHub Repository](https://github.com/phamdungtk/bmad-odoo)
-- [BMAD Framework (gốc)](https://github.com/bmadcode/BMAD-METHOD)
+- [BMAD Framework (original)](https://github.com/bmadcode/BMAD-METHOD)
 - [Odoo Documentation](https://www.odoo.com/documentation)
 - [OCA Guidelines](https://github.com/OCA/odoo-community.org)
 
 ---
 
-## Hỗ Trợ
+## Support
 
-Nếu bạn gặp vấn đề:
+If you encounter issues:
 
-1. **Kiểm tra cài đặt**: `npm list bmad-odoo`
-2. **Chạy lại setup**: `npx bmad-odoo-setup`
-3. **Xem Troubleshooting** ở trên
+1. **Check installation**: `npm list bmad-odoo`
+2. **Re-run setup**: `npx bmad-odoo-setup`
+3. **See Troubleshooting** above
 4. **Report issue**: [GitHub Issues](https://github.com/phamdungtk/bmad-odoo/issues)
 
 ---
 
-**Phiên bản:** 1.0.0  
-**Cập nhật:** 2026-01-02  
-**Ngôn ngữ:** Tiếng Việt  
+**Version:** 1.0.0  
+**Updated:** 2026-01-02  
+**Language:** English  
 **License:** MIT

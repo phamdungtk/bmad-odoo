@@ -1,0 +1,63 @@
+# Dependencies
+node_modules/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE
+.vscode/
+.cursor/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Test files
+test/
+tests/
+__tests__/
+*.test.js
+*.spec.js
+coverage/
+
+# Development files
+.env
+.env.local
+.env.*.local
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build artifacts
+dist/
+build/
+*.tgz
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+
+# Documentation sources (keep compiled docs)
+docs-src/
+
+# Example files (if any)
+examples/
+demos/
+
+# CI/CD (keep for reference in repo, exclude from package)
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Note: scripts/ folder is INCLUDED because it contains:
+# - postinstall.js (runs on npm install)
+# - setup-cli.js (runs with npx bmad-odoo-setup)

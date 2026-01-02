@@ -1,0 +1,51 @@
+{
+    "name": "bmad-odoo",
+    "version": "1.0.0",
+    "description": "BMAD Framework mở rộng cho phát triển Odoo ERP - 10 AI Agents, 44+ Workflows, hỗ trợ tiếng Việt",
+    "main": "index.js",
+    "bin": {
+        "bmad-odoo-setup": "./scripts/setup-cli.js"
+    },
+    "scripts": {
+        "postinstall": "node scripts/postinstall.js",
+        "setup": "node scripts/setup-cli.js"
+    },
+    "keywords": [
+        "bmad",
+        "odoo",
+        "erp",
+        "ai-agents",
+        "development-framework",
+        "scrum",
+        "agile",
+        "business-analyst",
+        "architect",
+        "developer",
+        "vietnamese"
+    ],
+    "author": "Dũng Xuân",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/phamdungtk/bmad-odoo.git"
+    },
+    "homepage": "https://github.com/phamdungtk/bmad-odoo#readme",
+    "bugs": {
+        "url": "https://github.com/phamdungtk/bmad-odoo/issues"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "files": [
+        "_config/",
+        "bmm/",
+        "core/",
+        "scripts/",
+        "README.md",
+        "LICENSE",
+        "CHANGELOG.md"
+    ],
+    "dependencies": {
+        "bmad-odoo": "^1.0.0"
+    }
+}

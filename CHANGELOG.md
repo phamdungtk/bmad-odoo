@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.3] - 2026-01-02
+
+### Added
+- Integration với `bmad-method@alpha install`
+- Keyword `bmad-module` để auto-detect bởi bmad-method installer
+- Field `bmad` metadata trong package.json cho installer display
+- File `BMAD-METHOD-INTEGRATION.md` hướng dẫn integration
+
+### Changed
+- README.md với comprehensive documentation (Troubleshooting + FAQ)
+- Merge USAGE.md content vào README.md
+- Xóa USAGE.md (consolidate vào README duy nhất)
+
+### Fixed
+- Postinstall script đã được verify hoạt động tự động
+- Auto-setup với default Antigravity IDE khi non-interactive
+
+## [1.0.2] - 2026-01-02
+
+### Added
+- bmad-module keyword for installer detection
+- bmad metadata field
+
 ## [1.0.0] - 2026-01-02
 
 ### Added

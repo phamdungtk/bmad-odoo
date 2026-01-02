@@ -421,27 +421,43 @@ function printSuccessMessage(selectedIde) {
 
 // Main function
 async function main() {
+    console.log('\n🚀 BMAD-Odoo postinstall script starting...\n');
+
     const projectRoot = getProjectRoot();
     const packageRoot = path.join(__dirname, '..');
 
+    console.log(`📂 Package root: ${packageRoot}`);
+    console.log(`📂 Project root: ${projectRoot || 'NOT FOUND'}\n`);
+
     if (!projectRoot) {
         logWarning('Không tìm thấy project root. Bỏ qua auto-setup.');
-        logWarning('Bạn có thể setup thủ công theo hướng dẫn trong README.md\n');
-        return;
+        logWarning('Bạn có thể setup thủ công bằng lệnh: npx bmad-odoo-setup\n');
+        process.exit(0);
     }
 
     // Check if running interactively (has stdin)
     const isInteractive = process.stdin.isTTY;
 
-    if (isInteractive) {
-        await interactiveSetup(projectRoot, packageRoot);
-    } else {
-        autoSetup(projectRoot, packageRoot);
+    console.log(`🔧 Interactive mode: ${isInteractive ? 'YES' : 'NO (using auto-setup)'}\n`);
+
+    try {
+        if (isInteractive) {
+            await interactiveSetup(projectRoot, packageRoot);
+        } else {
+            autoSetup(projectRoot, packageRoot);
+        }
+    } catch (error) {
+        logError(`Lỗi trong quá trình setup: ${error.message}`);
+        console.error(error.stack);
+        logWarning('Bạn có thể setup thủ công bằng lệnh: npx bmad-odoo-setup\n');
+        process.exit(0); // Don't fail npm install
     }
 }
 
 // Run the script
 main().catch((error) => {
-    logError(`Lỗi trong quá trình setup: ${error.message}`);
-    logWarning('Bạn có thể setup thủ công theo hướng dẫn trong README.md\n');
+    logError(`Lỗi fatal: ${error.message}`);
+    console.error(error.stack);
+    logWarning('Bạn có thể setup thủ công bằng lệnh: npx bmad-odoo-setup\n');
+    process.exit(0); // Don't fail npm install
 });

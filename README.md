@@ -55,7 +55,12 @@
 npm install bmad-odoo
 ```
 
-**Post-install will automatically prompt you to choose IDE:**
+**Post-install behavior:**
+
+- **Interactive terminal**: Automatically prompts for IDE selection
+- **Non-interactive (CI/CD)**: Auto-setup with Antigravity (default)
+- **Manual setup**: Run `npx bmad-odoo-setup` anytime
+
 ```
 Choose your IDE:
   1. VS Code          - Visual Studio Code with AI extensions
@@ -210,16 +215,16 @@ MyOdooProject/
 │   └── documentation/
 ├── .agent/                 # ✨ Workflows for Antigravity
 │   └── workflows/
-│       ├── analyst.md
-│       ├── architect.md
-│       ├── dev.md
-│       ├── pm.md
-│       ├── sm.md
-│       ├── tea.md
-│       ├── ux-designer.md
-│       ├── quick-flow-solo-dev.md
-│       ├── tech-writer.md
-│       └── bmad-core-workflows-party-mode.md
+│       ├── bmad-odoo-agents-analyst.md
+│       ├── bmad-odoo-agents-architect.md
+│       ├── bmad-odoo-agents-dev.md
+│       ├── bmad-odoo-agents-pm.md
+│       ├── bmad-odoo-agents-sm.md
+│       ├── bmad-odoo-agents-tea.md
+│       ├── bmad-odoo-agents-ux-designer.md
+│       ├── bmad-odoo-agents-quick-flow-solo-dev.md
+│       ├── bmad-odoo-agents-tech-writer.md
+│       └── bmad-odoo-workflows-party-mode.md
 └── package.json
 ```
 

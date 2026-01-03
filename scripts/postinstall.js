@@ -436,10 +436,17 @@ async function main() {
         process.exit(0);
     }
 
-    // Check if running interactively (has stdin)
-    const isInteractive = process.stdin.isTTY;
+    // Check if running interactively
+    // Force interactive if called via bmad-odoo-setup CLI (BMAD_PROJECT_ROOT is set)
+    // or if stdin is a TTY
+    const isCalledViaSetupCli = !!process.env.BMAD_PROJECT_ROOT;
+    const isInteractive = isCalledViaSetupCli || process.stdin.isTTY;
 
-    console.log(`🔧 Interactive mode: ${isInteractive ? 'YES' : 'NO (using auto-setup)'}\n`);
+    console.log(`🔧 Interactive mode: ${isInteractive ? 'YES' : 'NO (using auto-setup)'}`);
+    if (isCalledViaSetupCli) {
+        console.log(`   (Called via bmad-odoo-setup CLI)`);
+    }
+    console.log('');
 
     try {
         if (isInteractive) {

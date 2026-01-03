@@ -1,6 +1,6 @@
 {
     "name": "bmad-odoo",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "BMAD Framework mở rộng cho phát triển Odoo ERP - 10 AI Agents, 44+ Workflows, hỗ trợ tiếng Việt",
     "main": "index.js",
     "bin": {

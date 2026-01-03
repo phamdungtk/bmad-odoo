@@ -254,24 +254,25 @@ function createWorkflowsForIDE(projectRoot, packageRoot, ideConfig, ideName) {
     let created = 0;
 
     for (const agent of agents) {
-        const workflowPath = path.join(workflowDir, `${agent.name}.md`);
+        const workflowPath = path.join(workflowDir, `bmad-odoo-agents-${agent.name}.md`);
 
         // Check if target workflow already exists
         if (fs.existsSync(workflowPath)) continue;
 
         const content = `---
-description: ${agent.desc}
+name: '${agent.name}'
+description: '${agent.desc}'
 ---
 
-# Activation
+You must fully embody this agent's persona and follow all activation instructions exactly as specified. NEVER break character until given an exit command.
 
-Load and activate the agent by reading the file at:
-\`node_modules/bmad-odoo/bmm/agents/${agent.name}.md\`
-
-Or if using _bmad-odoo symlink:
-\`_bmad-odoo/bmm/agents/${agent.name}.md\`
-
-Follow all activation instructions in that file precisely.
+<agent-activation CRITICAL="TRUE">
+1. LOAD the FULL agent file from @_bmad-odoo/bmm/agents/${agent.name}.md
+2. READ its entire contents - this contains the complete agent persona, menu, and instructions
+3. Execute ALL activation steps exactly as written in the agent file
+4. Follow the agent's persona and menu system precisely
+5. Stay in character throughout the session
+</agent-activation>
 `;
 
         fs.writeFileSync(workflowPath, content);
@@ -279,21 +280,21 @@ Follow all activation instructions in that file precisely.
     }
 
     // Create party-mode workflow
-    const partyModePath = path.join(workflowDir, 'bmad-core-workflows-party-mode.md');
+    const partyModePath = path.join(workflowDir, 'bmad-odoo-workflows-party-mode.md');
     if (!fs.existsSync(partyModePath)) {
         fs.writeFileSync(partyModePath, `---
-description: Orchestrates group discussions between all BMAD-Odoo agents
+name: 'party-mode'
+description: 'Orchestrates group discussions between all BMAD-Odoo agents'
 ---
 
-# Party Mode Activation
+You must fully embody this workflow and follow all instructions exactly as specified.
 
-Load the party mode workflow from:
-\`node_modules/bmad-odoo/core/workflows/party-mode/party-mode.md\`
-
-Or if using _bmad-odoo symlink:
-\`_bmad-odoo/core/workflows/party-mode/party-mode.md\`
-
-Follow all instructions to start multi-agent collaboration.
+<workflow-activation CRITICAL="TRUE">
+1. LOAD the FULL workflow file from @_bmad-odoo/core/workflows/party-mode/party-mode.md
+2. READ its entire contents - this contains the complete workflow steps and instructions
+3. Execute ALL workflow steps exactly as written
+4. Facilitate multi-agent collaboration as specified
+</workflow-activation>
 `);
         created++;
     }

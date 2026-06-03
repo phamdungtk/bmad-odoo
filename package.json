@@ -1,6 +1,6 @@
 {
   "name": "bmad-odoo",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Agent teams for complex systems, compatible with BMad Method",
   "main": "index.js",
   "files": [
@@ -87,7 +87,6 @@
   },
   "dependencies": {
     "chalk": "^4.1.2",
-
     "fs-extra": "^11.3.3",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.0",
